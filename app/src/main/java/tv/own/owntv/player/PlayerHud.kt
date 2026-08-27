@@ -705,12 +705,33 @@ fun PlayerHud(
                 OwnTVButton(stringResource(R.string.common_retry), onClick = { player.retry() }, icon = OwnTVIcon.PLAY, modifier = Modifier.focusRequester(retryFocus))
             }
             // A provider wait looks like loading, because that is what it is: the channel is queued behind
-            // the panel's own countdown and the engine re-asks by itself. The line under the spinner says
-            // why nothing is happening yet, so nobody reaches for Retry (or thinks the channel is dead).
-            buffering -> Column(Modifier.align(Alignment.Center), horizontalAlignment = Alignment.CenterHorizontally) {
-                OwnTVSpinner(sizeDp = 56)
+            // the panel's own countdown and the engine re-asks by itself. Positioned at top-center so it never
+            // blocks the center transport buttons or the player HUD chrome.
+            buffering -> Column(
+                modifier = Modifier
+                    .align(Alignment.TopCenter)
+                    .padding(top = 80.dp),
+                horizontalAlignment = Alignment.CenterHorizontally,
+            ) {
+                Row(
+                    modifier = Modifier
+                        .clip(RoundedCornerShape(20.dp))
+                        .background(Color.Black.copy(alpha = 0.65f))
+                        .border(1.dp, Color.White.copy(alpha = 0.20f), RoundedCornerShape(20.dp))
+                        .padding(horizontal = 16.dp, vertical = 8.dp),
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.spacedBy(10.dp),
+                ) {
+                    OwnTVSpinner(sizeDp = 20, color = Color.White)
+                    Text(
+                        stringResource(R.string.player_buffering),
+                        style = MaterialTheme.typography.labelLarge,
+                        color = Color.White,
+                        fontWeight = FontWeight.SemiBold,
+                    )
+                }
                 providerBackOff?.let { wait ->
-                    Spacer(Modifier.height(14.dp))
+                    Spacer(Modifier.height(10.dp))
                     Text(
                         stringResource(
                             R.string.player_provider_retry_after,

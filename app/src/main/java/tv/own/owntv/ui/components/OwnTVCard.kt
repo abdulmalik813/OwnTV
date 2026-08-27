@@ -25,7 +25,7 @@ fun OwnTVCard(
         onClick = onClick,
         modifier = modifier,
         selected = selected,
-        shape = RoundedCornerShape(14.dp),
+        shape = RoundedCornerShape(0.dp),
         focusedScale = 1.03f,
         glowElevation = 8,
         focusedContainerColor = OwnTVTheme.colors.card,

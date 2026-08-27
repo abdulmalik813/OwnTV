@@ -37,7 +37,7 @@ import tv.own.owntv.ui.theme.glass
 @Composable
 fun Modifier.dialogPanel(
     width: Dp = 440.dp,
-    corner: Dp = 20.dp,
+    corner: Dp = 0.dp,
     padding: Dp = 24.dp,
     fill: Color? = null,
     scroll: Boolean = true,

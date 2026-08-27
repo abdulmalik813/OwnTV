@@ -54,9 +54,8 @@ import tv.own.owntv.ui.theme.glass
 import tv.own.owntv.ui.theme.ownTvTween
 import java.util.Date
 
-// Top-bar chips: corner matches the nav buttons (14dp, not full-pill) and a lighter frost than the
-// big panels so the small chrome reads as glass without being heavy.
-private val TopBarChipCorner = 14.dp
+// Top-bar chips: 0dp corner in customization theme.
+private val TopBarChipCorner = 0.dp
 private const val TopBarFrost = 0.45f
 
 @Composable

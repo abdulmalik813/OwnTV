@@ -39,7 +39,7 @@ fun OwnTVButton(
     compact: Boolean = false,
 ) {
     val colors = OwnTVTheme.colors
-    val shape = RoundedCornerShape(50) // M3 full/pill button
+    val shape = RoundedCornerShape(0.dp) // Square button in customization theme
 
     val primary = style == OwnTVButtonStyle.PRIMARY
     // Frost with whatever surface the host renders on (DIALOGS inside a popup, CARDS on a panel),

@@ -28,7 +28,7 @@ object Dimens {
 
     // MD3 settings tonal icon tile
     val IconTileSize = 42.dp
-    val IconTileCorner = 12.dp
+    val IconTileCorner = 0.dp
 
     val GapTiny = 4.dp
     val GapSmall = 8.dp
@@ -36,16 +36,16 @@ object Dimens {
     val GapLarge = 24.dp
 
     // Poster tiles (PosterCard) — values match the shipped look exactly; centralized for tuning.
-    val PosterCardCorner = 14.dp
-    val PosterArtCorner = 10.dp
+    val PosterCardCorner = 0.dp
+    val PosterArtCorner = 0.dp
     val PosterPadding = 6.dp
     val PosterProgressHeight = 4.dp
 
     // M3 expressive shape scale (larger, rounder than the defaults).
-    val CornerSmall = 12.dp
-    val CornerMedium = 18.dp
-    val CornerLarge = 24.dp
-    val CardCorner = 20.dp
+    val CornerSmall = 0.dp
+    val CornerMedium = 0.dp
+    val CornerLarge = 0.dp
+    val CardCorner = 0.dp
 
     val FocusBorderWidth = 2.dp
 
@@ -55,8 +55,8 @@ object Dimens {
     val HeroBaseWidth = 180.dp
     val HeroMetaHeight = 84.dp
     val HeroGap = 14.dp
-    val HeroCardCorner = 18.dp
-    val HeroPosterCorner = 14.dp
+    val HeroCardCorner = 0.dp
+    val HeroPosterCorner = 0.dp
     val HeroMaxCardHeight = 354.dp
     val HeroMinCardHeight = 200.dp
     val HeroOverlayMaxWidth = 400.dp

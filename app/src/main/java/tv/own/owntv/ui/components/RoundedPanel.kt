@@ -26,15 +26,15 @@ import tv.own.owntv.ui.theme.glass
 // both themes without collapsing the interface into the greyer generic M3 elevation ladder.
 val RailPanelFill: Color
     @Composable @ReadOnlyComposable get() =
-        if (OwnTVTheme.colors.isDark) Color(0xFF111C18) else Color(0xFFE6EEE9)
+        if (OwnTVTheme.colors.isDark) Color(0xFF141414) else Color(0xFFE6E6E6)
 
 val ContentPanelFill: Color
     @Composable @ReadOnlyComposable get() =
-        if (OwnTVTheme.colors.isDark) Color(0xFF0A1512) else Color(0xFFF2F7F4)
+        if (OwnTVTheme.colors.isDark) Color(0xFF0D0D0D) else Color(0xFFF2F2F2)
 
 val PreviewPanelFill: Color
     @Composable @ReadOnlyComposable get() =
-        if (OwnTVTheme.colors.isDark) Color(0xFF15201D) else Color(0xFFDEE9E3)
+        if (OwnTVTheme.colors.isDark) Color(0xFF1F1F1F) else Color(0xFFD9D9D9)
 
 /**
  * Phase 6 — a rounded visual container matching the new-shell mockup's "panel 2/3/4" look: large rounded
@@ -56,7 +56,7 @@ val PreviewPanelFill: Color
 @Composable
 fun RoundedPanel(
     modifier: Modifier = Modifier,
-    radius: Dp = 22.dp,
+    radius: Dp = 0.dp,
     fillColor: Color? = null,
     innerPadding: PaddingValues = PaddingValues(0.dp),
     surface: GlassSurface = GlassSurface.PANELS,
@@ -98,7 +98,7 @@ fun RoundedPanel(
  */
 @Composable
 fun Modifier.roundedPanel(
-    radius: Dp = 22.dp,
+    radius: Dp = 0.dp,
     fillColor: Color? = null,
     surface: GlassSurface = GlassSurface.PANELS,
 ): Modifier {
