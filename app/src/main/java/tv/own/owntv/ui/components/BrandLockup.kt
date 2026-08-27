@@ -42,7 +42,7 @@ fun BrandLockup(
         horizontalArrangement = Arrangement.spacedBy(10.dp),
     ) {
         // Rounded-square play mark
-        val markShape = RoundedCornerShape(percent = 28)
+        val markShape = RoundedCornerShape(0.dp)
         androidx.compose.foundation.layout.Box(
             modifier = Modifier
                 .size(markSize.dp)

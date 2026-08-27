@@ -709,45 +709,54 @@ fun PlayerHud(
             // A provider wait looks like loading, because that is what it is: the channel is queued behind
             // the panel's own countdown and the engine re-asks by itself. Positioned at top-center so it never
             // blocks the center transport buttons or the player HUD chrome.
-            buffering -> Column(
-                modifier = Modifier
-                    .align(Alignment.TopCenter)
-                    .padding(top = 80.dp),
-                horizontalAlignment = Alignment.CenterHorizontally,
-            ) {
-                Row(
-                    modifier = Modifier
-                        .clip(RoundedCornerShape(20.dp))
-                        .background(Color.Black.copy(alpha = 0.65f))
-                        .border(1.dp, Color.White.copy(alpha = 0.20f), RoundedCornerShape(20.dp))
-                        .padding(horizontal = 16.dp, vertical = 8.dp),
-                    verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.spacedBy(10.dp),
-                ) {
-                    OwnTVSpinner(sizeDp = 20, color = Color.White)
-                    Text(
-                        stringResource(R.string.player_buffering),
-                        style = MaterialTheme.typography.labelLarge,
-                        color = Color.White,
-                        fontWeight = FontWeight.SemiBold,
-                    )
-                }
-                providerBackOff?.let { wait ->
-                    Spacer(Modifier.height(10.dp))
-                    Text(
-                        stringResource(
-                            R.string.player_provider_retry_after,
-                            wait.httpCode,
-                            wait.message ?: stringResource(R.string.player_provider_busy),
-                            wait.secondsLeft,
-                        ),
-                        style = MaterialTheme.typography.bodyMedium,
-                        color = Color.White.copy(alpha = 0.85f),
-                        textAlign = TextAlign.Center,
-                        modifier = Modifier.fillMaxWidth(0.7f),
-                    )
-                }
-            }
+            // Updated loading indicator positioned at bottom center and using a linear progress bar
+buffering -> Column(
+    modifier = Modifier
+        .align(Alignment.BottomCenter)
+        .padding(bottom = 80.dp),
+    horizontalAlignment = Alignment.CenterHorizontally,
+) {
+    Row(
+        modifier = Modifier
+            .clip(RoundedCornerShape(20.dp))
+            .background(Color.Black.copy(alpha = 0.65f))
+            .border(1.dp, Color.White.copy(alpha = 0.20f), RoundedCornerShape(20.dp))
+            .padding(horizontal = 16.dp, vertical = 8.dp),
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.spacedBy(10.dp),
+    ) {
+        // Linear progress indicator replaces the spinner
+        androidx.compose.material3.LinearProgressIndicator(
+            modifier = Modifier
+                .width(80.dp)
+                .height(4.dp),
+            color = Color.White,
+            trackColor = Color.Gray,
+        )
+        Text(
+            stringResource(R.string.player_buffering),
+            style = MaterialTheme.typography.labelLarge,
+            color = Color.White,
+            fontWeight = FontWeight.SemiBold,
+        )
+    }
+    providerBackOff?.let { wait ->
+        Spacer(Modifier.height(10.dp))
+        Text(
+            stringResource(
+                R.string.player_provider_retry_after,
+                wait.httpCode,
+                wait.message ?: stringResource(R.string.player_provider_busy),
+                wait.secondsLeft,
+            ),
+            style = MaterialTheme.typography.bodyMedium,
+            color = Color.White.copy(alpha = 0.85f),
+            textAlign = TextAlign.Center,
+            modifier = Modifier.fillMaxWidth(0.7f),
+        )
+    }
+}
+
         }
     }
     } // CompositionLocalProvider

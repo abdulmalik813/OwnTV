@@ -72,7 +72,7 @@ fun HueBar(hue: Float, modifier: Modifier = Modifier, onHue: (Float) -> Unit) {
             modifier = modifier
                 .fillMaxWidth()
                 .height(30.dp)
-                .clip(RoundedCornerShape(15.dp))
+                .clip(RoundedCornerShape(0.dp))
                 .background(Brush.horizontalGradient(HueSpectrum))
                 .border(if (editing || focused) 3.dp else 1.dp, ring, RoundedCornerShape(15.dp))
                 .onFocusChanged { focused = it.isFocused; if (!it.isFocused) editing = false }
